@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>kerwino&#39;s space</title>
+  
+  <subtitle>blog</subtitle>
+  <link href="https://cccreate.cn/atom.xml" rel="self"/>
+  
+  <link href="https://cccreate.cn/"/>
+  <updated>2020-11-21T23:37:50.575Z</updated>
+  <id>https://cccreate.cn/</id>
+  
+  <author>
+    <name>kerwino</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>测试</title>
+    <link href="https://cccreate.cn/%E5%88%86%E7%B1%BB%E6%B5%8B%E8%AF%952/git/"/>
+    <id>https://cccreate.cn/%E5%88%86%E7%B1%BB%E6%B5%8B%E8%AF%952/git/</id>
+    <published>2020-11-21T14:17:44.545Z</published>
+    <updated>2020-11-21T23:37:50.575Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="账号本地配置"><a href="#账号本地配置" class="headerlink" title="账号本地配置"></a>账号本地配置</h2><h3 id="Git初始化配置"><a href="#Git初始化配置" class="headerlink" title="Git初始化配置"></a>Git初始化配置</h3><blockquote><p>观前提醒，建议先在您的浏览器登录GitHub，以便链接直达您的GitHub页面</p></blockquote><a id="more"></a><ul><li><p>配置用户名和邮箱号</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;您的名称”</span><br><span class="line">git config --global user.emal “您的邮箱”</span><br></pre></td></tr></table></figure></li><li><p>检查设置是否成功</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure><h3 id="配置密码"><a href="#配置密码" class="headerlink" title="配置密码"></a>配置密码</h3></li><li><p>生成密钥<br>  在终端键入<code>ssh-keygen -t rsa -C email@example.com</code></p></li><li><p>设置密钥存放位置<br>  回车后出现设置密钥文件存放位置的提示，回车选择默认</p><blockquote><p>密钥类型可以用 -t 选项指定。如果没有指定则默认生成用于SSH-2的RSA密钥。这里使用的是rsa。</p></blockquote></li><li><p>键入用于生成密钥的密码<br>  要求输入两次密码。可为空</p></li><li><p>查看密钥文件<br>此时[/Users/username/.ssh]目录下已经生成好了。可以到目录下面看到2个文件分别<strong>id_rsa</strong>和<strong>id_rsa.pub</strong>。对应私钥文件和公钥文件。</p></li><li><p>Github配置密钥<br>  拷贝公钥，前往Github<a href="https://github.com/settings/keys">添加密钥</a>，把公钥添加进去，并给此公钥命名来区分其他的公钥。</p><blockquote><p>每次代码的提交，服务器都会用你的私钥提交服务器，公钥进行验证。由于使用的是不对称加密，所以公钥可以公开，只要保管好私钥就可以。</p></blockquote></li><li><p>测试ssh连接<br>  在终端键入<code>ssh -T git@github.com</code><br>输入密码后，如果看到问候语说明初始化配置成功了<br>问候语</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi username! You&#39;ve successfully authenticated, but GitHub does not provide shell access</span><br></pre></td></tr></table></figure></li></ul><h2 id="链接到服务器"><a href="#链接到服务器" class="headerlink" title="链接到服务器"></a>链接到服务器</h2><h3 id="从本地连接到服务器"><a href="#从本地连接到服务器" class="headerlink" title="从本地连接到服务器"></a>从本地连接到服务器</h3><ul><li>建立本地配置文件<br>  找到你程序所在的目录，在终端中键入命令  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd 你程序所在的目录</span><br><span class="line">git init</span><br></pre></td></tr></table></figure>  这个目录就是git所说的仓库了，这时候用VsCode打开这个目录,增加一个文件，然后会看到左侧SourceControl图标变化，点击然后**点文件后面的<code>+</code>,再点最上方的<code>√</code>**，分别对应<code>git commit</code>和<code>git add</code><br>  至此，就可以在本地进行修改和提交了</li><li>创建服务器仓库<br>  打开<a href="https://github.com/new">新建仓库</a>，键入仓库名称 直接创建即可<br>  <img src="git_pic/gittec.png" alt="新建仓库"><br>  创建成功之后<br>  接着上面继续在终端中输入<br>  关联远程仓库 <code>git remote add origin https://github.com/sa0okm9ijn/iosWatch.git </code><br>  把本地信息推送 <code>git push -u origin master</code><br>  完成后再刷新GitHub页面即可看到文件已经同步了<br>  此后在本地的修改和提交可以推送到远端了<h3 id="从服务器下载到本地"><a href="#从服务器下载到本地" class="headerlink" title="从服务器下载到本地"></a>从服务器下载到本地</h3></li><li>打开vscode</li><li>选择克隆存储库</li><li>从GitHub拷贝你的仓库的链接<code>https://github.com/yourname/yourRepositoryName.git</code></li><li>在输入框中填入复制的链接</li><li>下载完成后对该仓库本地文件的修改和提交都会同步到服务器</li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;账号本地配置&quot;&gt;&lt;a href=&quot;#账号本地配置&quot; class=&quot;headerlink&quot; title=&quot;账号本地配置&quot;&gt;&lt;/a&gt;账号本地配置&lt;/h2&gt;&lt;h3 id=&quot;Git初始化配置&quot;&gt;&lt;a href=&quot;#Git初始化配置&quot; class=&quot;headerlink&quot; title=&quot;Git初始化配置&quot;&gt;&lt;/a&gt;Git初始化配置&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;观前提醒，建议先在您的浏览器登录GitHub，以便链接直达您的GitHub页面&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="分类测试2" scheme="https://cccreate.cn/categories/%E5%88%86%E7%B1%BB%E6%B5%8B%E8%AF%952/"/>
+    
+    
+    <category term="标签测试2" scheme="https://cccreate.cn/tags/%E6%A0%87%E7%AD%BE%E6%B5%8B%E8%AF%952/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://cccreate.cn/%E5%88%86%E7%B1%BB%E6%B5%8B%E8%AF%95/hello-world/"/>
+    <id>https://cccreate.cn/%E5%88%86%E7%B1%BB%E6%B5%8B%E8%AF%95/hello-world/</id>
+    <published>2020-11-20T01:13:14.110Z</published>
+    <updated>2020-11-21T23:40:32.784Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for <a id="more"></a>more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+    
+    
+    
+    <category term="分类测试" scheme="https://cccreate.cn/categories/%E5%88%86%E7%B1%BB%E6%B5%8B%E8%AF%95/"/>
+    
+    
+    <category term="标签测试" scheme="https://cccreate.cn/tags/%E6%A0%87%E7%AD%BE%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+</feed>
