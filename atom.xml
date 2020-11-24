@@ -6,7 +6,7 @@
   <link href="http://cccreate.cn/atom.xml" rel="self"/>
   
   <link href="http://cccreate.cn/"/>
-  <updated>2020-11-24T06:16:21.857Z</updated>
+  <updated>2020-11-24T08:17:48.842Z</updated>
   <id>http://cccreate.cn/</id>
   
   <author>
@@ -15,27 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>SSH登录方式</title>
-    <link href="http://cccreate.cn/%E5%85%B6%E4%BB%96/SSH%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/"/>
-    <id>http://cccreate.cn/%E5%85%B6%E4%BB%96/SSH%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/</id>
-    <published>2020-11-24T05:27:29.000Z</published>
-    <updated>2020-11-24T06:16:21.857Z</updated>
-    
-    <content type="html"><![CDATA[<p>关于SSH的两种登录方式以及文件目录的解析</p><a id="more"></a><h1 id="SSH登录"><a href="#SSH登录" class="headerlink" title="SSH登录"></a>SSH登录</h1><h2 id="口令登录"><a href="#口令登录" class="headerlink" title="口令登录"></a>口令登录</h2><p>即使用密码进行登录</p><!--more--><p>在主机键入命令</p><blockquote><p>使用默认端口22进行登录</p></blockquote><p><code>ssh usr_name@sever_ip</code></p><blockquote><p>使用指定端口进行登录</p></blockquote><p><code>ssh -p 1234 ldz@192.168.0.1</code></p><p>紧接着输入<code>usr_name</code>的密码即可与目标ip建立链接</p><h2 id="密钥登录"><a href="#密钥登录" class="headerlink" title="密钥登录"></a>密钥登录</h2><p><code>ssh-keygen -t rsa</code></p><p>在当前用户的根目录创建<code>.shh</code>文件夹生成密钥对</p><p>将公钥复制到远程主机<code>~/.ssh/authorized_key</code>文件中</p><p><code>ssh-copy-id ldz@192.168.0.1</code></p><p>接着输入远程服务器的密码即可</p><p>经过以上两个步骤，以后再登录这个远程主机就不用再输入密码了</p><h2 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h2><h2 id="ssh-usr-name-sever-ip失败"><a href="#ssh-usr-name-sever-ip失败" class="headerlink" title="ssh usr_name@sever_ip失败"></a>ssh usr_name@sever_ip失败</h2><ul><li>原因：<br>之前与此ip建立过连接，此报错是由于远程的主机的公钥发生了变化导致的。</li></ul><h2 id="文件结构解析"><a href="#文件结构解析" class="headerlink" title="文件结构解析"></a>文件结构解析</h2><blockquote><p>.shh文件结构</p></blockquote><p><img src="pic/%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95.png"></p><ul><li><p>id_rsa 私钥<br>服务器上经过rsa算法生成的私钥。与公钥是一对的密钥对，用于与其他服务器链接时进行比对验证。</p></li><li><p>id_rsa.pub 公钥<br>服务器上经过rsa算法生成的公钥。与私钥是一对的密钥对，用于与其他服务器链接时进行比对验证。</p></li></ul><blockquote><p>将主机A的id_rsa.pub内容copy到B主机的authorized_keys文件中，这样A主机就能不通过密码连接到B主机。</p></blockquote><ul><li><p>已知主机 known_host<br>ssh会把每个访问过计算机的公钥(public key)都记录在<code>~/.ssh/known_hosts</code>当下次访问相同计算机时，OpenSSH会核对公钥。如果公钥不同，OpenSSH会发出警告。</p></li><li><p>授权文件 authorized_keys<br>存储已经与本机建立密钥链接的主机的公钥</p></li></ul>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;关于SSH的两种登录方式以及文件目录的解析&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="其他" scheme="http://cccreate.cn/categories/%E5%85%B6%E4%BB%96/"/>
-    
-    
-    <category term="git" scheme="http://cccreate.cn/tags/git/"/>
-    
-  </entry>
   
   <entry>
     <title>git的配置和简单使用</title>
@@ -48,6 +27,27 @@
     
     
     <summary type="html">&lt;p&gt;关于git的配置和在vs code中的使用&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="其他" scheme="http://cccreate.cn/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+    <category term="git" scheme="http://cccreate.cn/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SSH登录方式</title>
+    <link href="http://cccreate.cn/%E5%85%B6%E4%BB%96/SSH%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/"/>
+    <id>http://cccreate.cn/%E5%85%B6%E4%BB%96/SSH%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/</id>
+    <published>2020-11-24T05:27:29.000Z</published>
+    <updated>2020-11-24T06:16:21.857Z</updated>
+    
+    <content type="html"><![CDATA[<p>关于SSH的两种登录方式以及文件目录的解析</p><a id="more"></a><h1 id="SSH登录"><a href="#SSH登录" class="headerlink" title="SSH登录"></a>SSH登录</h1><h2 id="口令登录"><a href="#口令登录" class="headerlink" title="口令登录"></a>口令登录</h2><p>即使用密码进行登录</p><!--more--><p>在主机键入命令</p><blockquote><p>使用默认端口22进行登录</p></blockquote><p><code>ssh usr_name@sever_ip</code></p><blockquote><p>使用指定端口进行登录</p></blockquote><p><code>ssh -p 1234 ldz@192.168.0.1</code></p><p>紧接着输入<code>usr_name</code>的密码即可与目标ip建立链接</p><h2 id="密钥登录"><a href="#密钥登录" class="headerlink" title="密钥登录"></a>密钥登录</h2><p><code>ssh-keygen -t rsa</code></p><p>在当前用户的根目录创建<code>.shh</code>文件夹生成密钥对</p><p>将公钥复制到远程主机<code>~/.ssh/authorized_key</code>文件中</p><p><code>ssh-copy-id ldz@192.168.0.1</code></p><p>接着输入远程服务器的密码即可</p><p>经过以上两个步骤，以后再登录这个远程主机就不用再输入密码了</p><h2 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h2><h2 id="ssh-usr-name-sever-ip失败"><a href="#ssh-usr-name-sever-ip失败" class="headerlink" title="ssh usr_name@sever_ip失败"></a>ssh usr_name@sever_ip失败</h2><ul><li>原因：<br>之前与此ip建立过连接，此报错是由于远程的主机的公钥发生了变化导致的。</li></ul><h2 id="文件结构解析"><a href="#文件结构解析" class="headerlink" title="文件结构解析"></a>文件结构解析</h2><blockquote><p>.shh文件结构</p></blockquote><p><img src="pic/%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95.png"></p><ul><li><p>id_rsa 私钥<br>服务器上经过rsa算法生成的私钥。与公钥是一对的密钥对，用于与其他服务器链接时进行比对验证。</p></li><li><p>id_rsa.pub 公钥<br>服务器上经过rsa算法生成的公钥。与私钥是一对的密钥对，用于与其他服务器链接时进行比对验证。</p></li></ul><blockquote><p>将主机A的id_rsa.pub内容copy到B主机的authorized_keys文件中，这样A主机就能不通过密码连接到B主机。</p></blockquote><ul><li><p>已知主机 known_host<br>ssh会把每个访问过计算机的公钥(public key)都记录在<code>~/.ssh/known_hosts</code>当下次访问相同计算机时，OpenSSH会核对公钥。如果公钥不同，OpenSSH会发出警告。</p></li><li><p>授权文件 authorized_keys<br>存储已经与本机建立密钥链接的主机的公钥</p></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;关于SSH的两种登录方式以及文件目录的解析&lt;/p&gt;</summary>
     
     
     
