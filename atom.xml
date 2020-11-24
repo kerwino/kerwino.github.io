@@ -6,7 +6,7 @@
   <link href="http://cccreate.cn/atom.xml" rel="self"/>
   
   <link href="http://cccreate.cn/"/>
-  <updated>2020-11-24T16:00:50.641Z</updated>
+  <updated>2020-11-24T06:16:21.857Z</updated>
   <id>http://cccreate.cn/</id>
   
   <author>
@@ -15,27 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>git的配置和简单使用</title>
-    <link href="http://cccreate.cn/%E5%85%B6%E4%BB%96/git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
-    <id>http://cccreate.cn/%E5%85%B6%E4%BB%96/git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</id>
-    <published>2020-11-24T05:27:29.000Z</published>
-    <updated>2020-11-24T16:00:50.641Z</updated>
-    
-    <content type="html"><![CDATA[<p>关于git的配置和在vs code中的使用</p><a id="more"></a><p>{cq} 标题剧中测试 {cq}</p><h2 id="账号本地配置"><a href="#账号本地配置" class="headerlink" title="账号本地配置"></a>账号本地配置</h2><h3 id="Git初始化配置"><a href="#Git初始化配置" class="headerlink" title="Git初始化配置"></a>Git初始化配置</h3><blockquote><p>观前提醒，建议先在您的浏览器登录GitHub，以便链接直达您的GitHub页面</p></blockquote><ul><li><p>配置用户名和邮箱号</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;您的名称”</span><br><span class="line">git config --global user.emal “您的邮箱”</span><br></pre></td></tr></table></figure></li><li><p>检查设置是否成功</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure><h3 id="配置密码"><a href="#配置密码" class="headerlink" title="配置密码"></a>配置密码</h3></li><li><p>生成密钥<br>  在终端键入<code>ssh-keygen -t rsa -C email@example.com</code></p></li><li><p>设置密钥存放位置<br>  回车后出现设置密钥文件存放位置的提示，回车选择默认</p><blockquote><p>密钥类型可以用 -t 选项指定。如果没有指定则默认生成用于SSH-2的RSA密钥。这里使用的是rsa。</p></blockquote></li><li><p>键入用于生成密钥的密码<br>  要求输入两次密码。可为空</p></li><li><p>查看密钥文件<br>此时[/Users/username/.ssh]目录下已经生成好了。可以到目录下面看到2个文件分别<strong>id_rsa</strong>和<strong>id_rsa.pub</strong>。对应私钥文件和公钥文件。</p></li><li><p>Github配置密钥<br>  拷贝公钥，前往Github<a href="https://github.com/settings/keys">添加密钥</a>，把公钥添加进去，并给此公钥命名来区分其他的公钥。</p><blockquote><p>每次代码的提交，服务器都会用你的私钥提交服务器，公钥进行验证。由于使用的是不对称加密，所以公钥可以公开，只要保管好私钥就可以。</p></blockquote></li><li><p>测试ssh连接<br>  在终端键入<code>ssh -T git@github.com</code><br>输入密码后，如果看到问候语说明初始化配置成功了<br>问候语</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi username! You&#39;ve successfully authenticated, but GitHub does not provide shell access</span><br></pre></td></tr></table></figure></li></ul><h2 id="链接到服务器"><a href="#链接到服务器" class="headerlink" title="链接到服务器"></a>链接到服务器</h2><h3 id="从本地连接到服务器"><a href="#从本地连接到服务器" class="headerlink" title="从本地连接到服务器"></a>从本地连接到服务器</h3><ul><li>建立本地配置文件<br>  找到你程序所在的目录，在终端中键入命令  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd 你程序所在的目录</span><br><span class="line">git init</span><br></pre></td></tr></table></figure>  这个目录就是git所说的仓库了，这时候用VsCode打开这个目录,增加一个文件，然后会看到左侧SourceControl图标变化，点击然后**点文件后面的<code>+</code>,再点最上方的<code>√</code>**，分别对应<code>git commit</code>和<code>git add</code><br>  至此，就可以在本地进行修改和提交了</li><li>创建服务器仓库<br>  打开<a href="https://github.com/new">新建仓库</a>，键入仓库名称 直接创建即可<br>  <img src="git_pic/gittec.png" alt="新建仓库"><br>  创建成功之后<br>  接着上面继续在终端中输入<br>  关联远程仓库 <code>git remote add origin https://github.com/sa0okm9ijn/iosWatch.git </code><br>  把本地信息推送 <code>git push -u origin master</code><br>  完成后再刷新GitHub页面即可看到文件已经同步了<br>  此后在本地的修改和提交可以推送到远端了<h3 id="从服务器下载到本地"><a href="#从服务器下载到本地" class="headerlink" title="从服务器下载到本地"></a>从服务器下载到本地</h3></li><li>打开vscode</li><li>选择克隆存储库</li><li>从GitHub拷贝你的仓库的链接<code>https://github.com/yourname/yourRepositoryName.git</code></li><li>在输入框中填入复制的链接</li><li>下载完成后对该仓库本地文件的修改和提交都会同步到服务器</li></ul>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;关于git的配置和在vs code中的使用&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="其他" scheme="http://cccreate.cn/categories/%E5%85%B6%E4%BB%96/"/>
-    
-    
-    <category term="git" scheme="http://cccreate.cn/tags/git/"/>
-    
-  </entry>
   
   <entry>
     <title>SSH登录方式</title>
@@ -48,6 +27,27 @@
     
     
     <summary type="html">&lt;p&gt;关于SSH的两种登录方式以及文件目录的解析&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="其他" scheme="http://cccreate.cn/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+    <category term="git" scheme="http://cccreate.cn/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git的配置和简单使用</title>
+    <link href="http://cccreate.cn/%E5%85%B6%E4%BB%96/git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
+    <id>http://cccreate.cn/%E5%85%B6%E4%BB%96/git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</id>
+    <published>2020-11-24T05:27:29.000Z</published>
+    <updated>2020-11-24T16:00:50.641Z</updated>
+    
+    <content type="html"><![CDATA[<p>关于git的配置和在vs code中的使用</p><a id="more"></a><p>{cq} 标题剧中测试 {cq}</p><h2 id="账号本地配置"><a href="#账号本地配置" class="headerlink" title="账号本地配置"></a>账号本地配置</h2><h3 id="Git初始化配置"><a href="#Git初始化配置" class="headerlink" title="Git初始化配置"></a>Git初始化配置</h3><blockquote><p>观前提醒，建议先在您的浏览器登录GitHub，以便链接直达您的GitHub页面</p></blockquote><ul><li><p>配置用户名和邮箱号</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;您的名称”</span><br><span class="line">git config --global user.emal “您的邮箱”</span><br></pre></td></tr></table></figure></li><li><p>检查设置是否成功</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name</span><br><span class="line">git config user.email</span><br></pre></td></tr></table></figure><h3 id="配置密码"><a href="#配置密码" class="headerlink" title="配置密码"></a>配置密码</h3></li><li><p>生成密钥<br>  在终端键入<code>ssh-keygen -t rsa -C email@example.com</code></p></li><li><p>设置密钥存放位置<br>  回车后出现设置密钥文件存放位置的提示，回车选择默认</p><blockquote><p>密钥类型可以用 -t 选项指定。如果没有指定则默认生成用于SSH-2的RSA密钥。这里使用的是rsa。</p></blockquote></li><li><p>键入用于生成密钥的密码<br>  要求输入两次密码。可为空</p></li><li><p>查看密钥文件<br>此时[/Users/username/.ssh]目录下已经生成好了。可以到目录下面看到2个文件分别<strong>id_rsa</strong>和<strong>id_rsa.pub</strong>。对应私钥文件和公钥文件。</p></li><li><p>Github配置密钥<br>  拷贝公钥，前往Github<a href="https://github.com/settings/keys">添加密钥</a>，把公钥添加进去，并给此公钥命名来区分其他的公钥。</p><blockquote><p>每次代码的提交，服务器都会用你的私钥提交服务器，公钥进行验证。由于使用的是不对称加密，所以公钥可以公开，只要保管好私钥就可以。</p></blockquote></li><li><p>测试ssh连接<br>  在终端键入<code>ssh -T git@github.com</code><br>输入密码后，如果看到问候语说明初始化配置成功了<br>问候语</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi username! You&#39;ve successfully authenticated, but GitHub does not provide shell access</span><br></pre></td></tr></table></figure></li></ul><h2 id="链接到服务器"><a href="#链接到服务器" class="headerlink" title="链接到服务器"></a>链接到服务器</h2><h3 id="从本地连接到服务器"><a href="#从本地连接到服务器" class="headerlink" title="从本地连接到服务器"></a>从本地连接到服务器</h3><ul><li>建立本地配置文件<br>  找到你程序所在的目录，在终端中键入命令  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd 你程序所在的目录</span><br><span class="line">git init</span><br></pre></td></tr></table></figure>  这个目录就是git所说的仓库了，这时候用VsCode打开这个目录,增加一个文件，然后会看到左侧SourceControl图标变化，点击然后**点文件后面的<code>+</code>,再点最上方的<code>√</code>**，分别对应<code>git commit</code>和<code>git add</code><br>  至此，就可以在本地进行修改和提交了</li><li>创建服务器仓库<br>  打开<a href="https://github.com/new">新建仓库</a>，键入仓库名称 直接创建即可<br>  <img src="git_pic/gittec.png" alt="新建仓库"><br>  创建成功之后<br>  接着上面继续在终端中输入<br>  关联远程仓库 <code>git remote add origin https://github.com/sa0okm9ijn/iosWatch.git </code><br>  把本地信息推送 <code>git push -u origin master</code><br>  完成后再刷新GitHub页面即可看到文件已经同步了<br>  此后在本地的修改和提交可以推送到远端了<h3 id="从服务器下载到本地"><a href="#从服务器下载到本地" class="headerlink" title="从服务器下载到本地"></a>从服务器下载到本地</h3></li><li>打开vscode</li><li>选择克隆存储库</li><li>从GitHub拷贝你的仓库的链接<code>https://github.com/yourname/yourRepositoryName.git</code></li><li>在输入框中填入复制的链接</li><li>下载完成后对该仓库本地文件的修改和提交都会同步到服务器</li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;关于git的配置和在vs code中的使用&lt;/p&gt;</summary>
     
     
     
