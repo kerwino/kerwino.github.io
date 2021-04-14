@@ -28,7 +28,7 @@
 <h2 id="文件结构解析"><a href="#文件结构解析" class="headerlink" title="文件结构解析"></a>文件结构解析</h2><blockquote>
 <p>.shh文件结构</p>
 </blockquote>
-<p>![2021-04-15 00.00.38](<a href="https://gitee.com/kerwino/picloud/raw/master/2021/04-14/%E6%88%AA%E5%B1%8F2021-04-14">https://gitee.com/kerwino/picloud/raw/master/2021/04-14/截屏2021-04-14</a> 23.57.25.png)</p>
+<p><img src="https://i.loli.net/2021/04/15/CtVZ4smBwKjFELh.png" alt="2021-04-15 00.00.38"></p>
 <ul>
 <li><p>id_rsa 私钥<br>服务器上经过rsa算法生成的私钥。与公钥是一对的密钥对，用于与其他服务器链接时进行比对验证。</p>
 </li>
