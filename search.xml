@@ -4,9 +4,8 @@
     <title>SSH登录方式</title>
     <url>/%E5%85%B6%E4%BB%96/SSH%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F/</url>
     <content><![CDATA[<p>关于SSH的两种登录方式以及文件目录的解析</p>
-<a id="more"></a>
 <h1 id="SSH登录"><a href="#SSH登录" class="headerlink" title="SSH登录"></a>SSH登录</h1><h2 id="口令登录"><a href="#口令登录" class="headerlink" title="口令登录"></a>口令登录</h2><p>即使用密码进行登录</p>
-<!--more-->
+<a id="more"></a>
 <p>在主机键入命令</p>
 <blockquote>
 <p>使用默认端口22进行登录</p>
@@ -29,7 +28,7 @@
 <h2 id="文件结构解析"><a href="#文件结构解析" class="headerlink" title="文件结构解析"></a>文件结构解析</h2><blockquote>
 <p>.shh文件结构</p>
 </blockquote>
-<p><img src="pic/%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95.png"></p>
+<p><img src="https://gitee.com/kerwino/picloud/raw/master/2021/04-15/%E6%88%AA%E5%B1%8F2021-04-15%2000.00.38.png" alt="截屏2021-04-15 00.00.38"></p>
 <ul>
 <li><p>id_rsa 私钥<br>服务器上经过rsa算法生成的私钥。与公钥是一对的密钥对，用于与其他服务器链接时进行比对验证。</p>
 </li>
@@ -57,12 +56,11 @@
     <title>git的配置和简单使用</title>
     <url>/%E5%85%B6%E4%BB%96/git%E7%9A%84%E9%85%8D%E7%BD%AE%E5%92%8C%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<p>关于git的配置和在vs code中的使用</p>
-<a id="more"></a>
-
-<p>{cq} 标题剧中测试 {cq}</p>
 <h2 id="账号本地配置"><a href="#账号本地配置" class="headerlink" title="账号本地配置"></a>账号本地配置</h2><h3 id="Git初始化配置"><a href="#Git初始化配置" class="headerlink" title="Git初始化配置"></a>Git初始化配置</h3><blockquote>
 <p>观前提醒，建议先在您的浏览器登录GitHub，以便链接直达您的GitHub页面</p>
 </blockquote>
+<a id="more"></a>
+
 <ul>
 <li><p>配置用户名和邮箱号</p>
   <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;您的名称”</span><br><span class="line">git config --global user.emal “您的邮箱”</span><br></pre></td></tr></table></figure>
