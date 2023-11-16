@@ -1,7 +1,7 @@
-import { getAllPostModuleName } from "@/app/lib/utils";
+import { getAllPostsInfo } from "@/app/lib/utils";
 import Link from "next/link";
 
-const postsModuleName = getAllPostModuleName();
+const postsInfo = getAllPostsInfo();
 
 export default function Post() {
     return (
@@ -10,13 +10,13 @@ export default function Post() {
 
             <div>All Post Module Path</div>
 
-            <pre>{JSON.stringify(postsModuleName, null, 4)}</pre>
+            <pre>{JSON.stringify(postsInfo, null, 4)}</pre>
 
             <ul>
-                {postsModuleName.map((module) => {
+                {postsInfo.map((info) => {
                     return (
-                        <li key={module}>
-                            <Link href={`/blog/${module}`}>{module}</Link>
+                        <li key={info.slug}>
+                            <Link href={`/blog/${info.slug}`}>{info.slug}</Link>
                         </li>
                     );
                 })}

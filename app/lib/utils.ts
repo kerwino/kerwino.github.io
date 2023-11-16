@@ -1,11 +1,12 @@
 import { readdirSync } from "fs";
 import { join, basename, extname } from "path";
 
-export function getAllPostModuleName() {
+export function getAllPostsInfo() {
     const postDir = join(process.cwd(), "post");
-    return readdirSync(postDir).map((fileNameWithExt) => {
-        const fileName = basename(fileNameWithExt, extname(fileNameWithExt));
-        const postModuleName = fileName;
-        return postModuleName;
-    });
+    const postFilePath = readdirSync(postDir);
+    const postInfo = postFilePath.map((path) => ({
+        slug: basename(path, extname(path)),
+        importName: basename(path),
+    }));
+    return postInfo;
 }

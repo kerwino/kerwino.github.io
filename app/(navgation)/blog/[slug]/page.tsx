@@ -1,28 +1,29 @@
-import { getAllPostModuleName } from "@/app/lib/utils";
+import { getAllPostsInfo } from "@/app/lib/utils";
 import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
-const posts = getAllPostModuleName();
 
+const posts = getAllPostsInfo();
 export default function Page({ params }: { params: { slug: string } }) {
-    if (!posts.includes(params.slug)) {
-        console.log(posts, params.slug);
+    const postInfo = posts.find((post) => post.slug === params.slug);
+    if (!postInfo) {
         notFound();
     }
 
-    const PostComponent = dynamic(() => import(`@/post/${params.slug}.tsx`));
-
+    const PostComponent = dynamic(
+        () => import(`@/post/${postInfo.importName}`),
+    );
     return (
-        <Suspense fallback={<h1>Loading...</h1>}>
-            <PostComponent />
-        </Suspense>
+        <article className={"prose w-full m-auto"}>
+            <Suspense fallback={<h1>Loading...</h1>}>
+                <PostComponent />
+            </Suspense>
+        </article>
     );
 }
 
 export async function generateStaticParams() {
-    const posts = getAllPostModuleName();
-
     return posts.map((post) => ({
-        slug: post,
+        slug: post.slug,
     }));
 }
