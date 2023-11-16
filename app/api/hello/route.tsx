@@ -1,3 +1,5 @@
 export async function GET() {
-    return Response.json({ msg: "Hello" });
+    return new Response(JSON.stringify({ msg: "Hello" }, null, 4), {
+        status: 200,
+    });
 }
