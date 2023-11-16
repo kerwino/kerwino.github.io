@@ -8,6 +8,9 @@ const nextConfig = {
     // Optionally, add any other Next.js config below
     transpilePackages: ["lucide-react"],
     output: "export",
+    experimental: {
+        webpackBuildWorker: true,
+    },
 };
 
 const withMDX = createMDX({
