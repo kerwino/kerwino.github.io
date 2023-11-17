@@ -13,6 +13,7 @@ export default function Page({ params }: { params: { slug: string } }) {
     const PostComponent = dynamic(
         () => import(`@/post/${postInfo.importName}`),
     );
+
     return (
         <article className={"prose w-full m-auto"}>
             <Suspense fallback={<h1>Loading...</h1>}>

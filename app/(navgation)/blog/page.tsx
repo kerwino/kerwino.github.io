@@ -1,4 +1,5 @@
 import { getAllPostsInfo } from "@/app/lib/utils";
+import { Code } from "bright";
 import Link from "next/link";
 
 const postsInfo = getAllPostsInfo();
@@ -7,11 +8,6 @@ export default function Post() {
     return (
         <article className={"prose w-full m-auto"}>
             <div>POSTS</div>
-
-            <div>All Post Module Path</div>
-
-            <pre>{JSON.stringify(postsInfo, null, 4)}</pre>
-
             <ul>
                 {postsInfo.map((info) => {
                     return (
@@ -21,6 +17,7 @@ export default function Post() {
                     );
                 })}
             </ul>
+            <Code lang={"json"}>{JSON.stringify(postsInfo, null, 4)}</Code>
         </article>
     );
 }

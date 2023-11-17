@@ -1,4 +1,7 @@
 import nextMdx from "@next/mdx";
+import remarkGfm from "remark-gfm";
+import remarkFrontmatter from "remark-frontmatter";
+import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 
 /** @type {import('next').NextConfig} */
 let nextConfig = {
@@ -30,7 +33,14 @@ if (process.env.GITHUB_ACTIONS) {
 
 const withMdx = nextMdx({
     extension: /\.mdx?$/,
-    options: {},
+    options: {
+        remarkPlugins: [
+            remarkGfm,
+            remarkFrontmatter,
+            [remarkMdxFrontmatter, { name: "matter" }],
+        ],
+        rehypePlugins: [],
+    },
 });
 
 nextConfig = withMdx(nextConfig);
