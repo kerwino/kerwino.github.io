@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Icon from "@/app/components/Icon";
-import type { IconName } from "@/app/components/Icon";
+import Icon from "@/components/Icon";
+import type { IconName } from "@/components/Icon";
 import clsx from "clsx";
 
 export default function NavItem({

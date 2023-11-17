@@ -1,4 +1,4 @@
-import { getAllPostsInfo } from "@/app/lib/utils";
+import { getAllPostsInfo } from "@/lib/utils";
 import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
@@ -11,7 +11,7 @@ export default function Page({ params }: { params: { slug: string } }) {
     }
 
     const PostComponent = dynamic(
-        () => import(`@/posts/${postInfo.importName}`),
+        () => import("@/data/posts/" + postInfo.importName),
     );
 
     return (

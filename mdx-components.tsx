@@ -3,7 +3,7 @@ import { Code } from "bright";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
     return {
-        pre: Code,
+        h1: ({ children }) => <div>{children}</div>,
         ...components,
     };
 }

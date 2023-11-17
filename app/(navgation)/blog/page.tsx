@@ -1,4 +1,4 @@
-import { getAllPostsInfo } from "@/app/lib/utils";
+import { getAllPostsInfo } from "@/lib/utils";
 import { Code } from "bright";
 import Link from "next/link";
 
