@@ -29,12 +29,4 @@ if (process.env.GITHUB_ACTIONS) {
     };
 }
 
-const withMDX = createMDX({
-    // Add markdown plugins here, as desired
-    options: {
-        remarkPlugins: [remarkGfm],
-        rehypePlugins: [],
-    },
-});
-
-export default withMDX(nextConfig);
+export default nextConfig;
