@@ -11,7 +11,7 @@ export default function Page({ params }: { params: { slug: string } }) {
     }
 
     const PostComponent = dynamic(
-        () => import(`@/post/${postInfo.importName}`),
+        () => import(`@/posts/${postInfo.importName}`),
     );
 
     return (

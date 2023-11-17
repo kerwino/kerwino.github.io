@@ -1,5 +1,5 @@
 "use client";
-import Content from "@/components/Layout/Content";
+import Content from "@/app/components/Layout/Content";
 import Providers from "./providers";
 
 export default function Home() {
