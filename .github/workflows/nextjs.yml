@@ -65,10 +65,10 @@ jobs:
                   version: 8
                   run_install: false
 
-            - name: Setup Pages
-              uses: actions/configure-pages@v3
-              with:
-                  static_site_generator: next
+            # - name: Setup Pages
+            #   uses: actions/configure-pages@v3
+            #   with:
+            #       static_site_generator: next
 
             - name: Restore cache
               uses: actions/cache@v3
