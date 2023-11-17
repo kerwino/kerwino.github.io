@@ -1,5 +1,4 @@
-import remarkGfm from "remark-gfm";
-import createMDX from "@next/mdx";
+import nextMdx from "@next/mdx";
 
 /** @type {import('next').NextConfig} */
 let nextConfig = {
@@ -28,5 +27,12 @@ if (process.env.GITHUB_ACTIONS) {
         basePath: isPersonalPage ? "" : repo,
     };
 }
+
+const withMdx = nextMdx({
+    extension: /\.mdx?$/,
+    options: {},
+});
+
+nextConfig = withMdx(nextConfig);
 
 export default nextConfig;
