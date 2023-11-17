@@ -9,4 +9,8 @@ import { Code } from "bright";
 }
 ```
 
-<Code>{crypto.randomBytes(1e5).toString("hex")}</Code>
+<Code>
+    {Array.from({ length: 1000 }, (_) =>
+        crypto.randomBytes(10).toString("hex"),
+    ).join("\n")}
+</Code>
